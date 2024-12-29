@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
-
+import frontpageRouter from "./routes/frontPage.routes.js"
 const app = express()
 
 app.use(cors({
@@ -14,3 +14,6 @@ app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
 
+app.use("/api/forntPage", frontpageRouter)
+
+export { app }
